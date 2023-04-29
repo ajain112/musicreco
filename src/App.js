@@ -1,25 +1,22 @@
-import './App.css';
-import Hero1 from './hero';
-import Nav from './navbar';
-import Foot from './foot';
-//import About from './About';
-//import Recommend from './recommend';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Landing from "./Landing";
+import Recommend from "./recommend";
+import About from "./About";
+import Nav from "./navbar";
+import Foot from "./foot";
 
 function App(){
     return(
-      <div className='App'>
-        <header>
-          <Nav />
-        </header>
-        <body>
-          <div class="herohold">
-            <Hero1/>
-          </div>
-        </body>
-        <footer>
-          <Foot />
-        </footer>
-      </div>
+      <BrowserRouter>
+      <Nav />
+      <Routes>
+          <Route path="Recommend" element={<Recommend />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/" element={<Landing />}>
+        </Route>
+      </Routes>
+      <Foot />
+      </BrowserRouter>
     );
 }
 
